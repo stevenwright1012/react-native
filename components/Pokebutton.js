@@ -1,5 +1,6 @@
 import React from 'react';
-import {Button, Alert, StyleSheet, Image, TouchableOpacity, Text, View} from 'react-native';
+import {Button, Alert, StyleSheet, Image, TouchableOpacity, Text, View, Animated} from 'react-native';
+import Twirly from './Twirly'
 
 export default class Pokebutton extends React.Component{
     state = {
@@ -44,13 +45,16 @@ export default class Pokebutton extends React.Component{
                     this.state.loading
                     ?
                     <TouchableOpacity style = {styles.button}>
-                        <Text>LOADING!</Text>
+                        <Image style={{height: 60}}source={require('./assets/pokesprites/25-original-cap.png')}/>
+                        <Text style={{marginLeft: 37, marginTop: 10}}>loading</Text>
                     </TouchableOpacity>
                     :
-                    <TouchableOpacity onPress={() => this.getPokemon()} style = {styles.button}>
-                        <Image source={this.props.sprite}/>
-                        <Text>{this.props.name.toUpperCase()}</Text>
-                    </TouchableOpacity>
+                    <Twirly>
+                        <TouchableOpacity onPress={() => this.getPokemon()} style = {styles.button}>
+                            <Image source={this.props.sprite}/>
+                            <Text>{this.props.name.toUpperCase()}</Text>
+                        </TouchableOpacity>
+                    </Twirly>
                 }
             </View>
         )
