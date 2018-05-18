@@ -16,7 +16,9 @@ export default class App extends React.Component {
   render() {
     var buttons = this.state.pokemon.map((poke, i) => {
       return <Pokebutton key={i}
-              name={poke.name} />
+              name={poke.name} 
+              sprite={poke.sprite}
+              number={poke.number}/>
     })
     return (
       <ScrollView contentContainerStyle={styles.container}>
@@ -29,12 +31,11 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/en/3/39/Pokeball.PNG)',
+    overflow: 'scroll',
+    display: "flex",
+    flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
-    // height:'100%',
-    // width: '100%',
-    overflow: 'scroll'
+    flexDirection: 'row',
   },
 });
