@@ -31,6 +31,7 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 40,
     overflow: 'scroll',
     display: "flex",
     flexWrap: 'wrap',
